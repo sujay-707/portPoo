@@ -26,6 +26,67 @@ import {
 } from 'lucide-react';
 
 function App() {
+  const clientWork = [
+    {
+      company: "Framebox",
+      role: "Ad Content Creator & Shoot Coordinator",
+      icon: Camera,
+      color: "from-purple-500 to-pink-500",
+      workDone: [
+        "Created ad copy and visual concepts for promotional videos",
+        "Managed and coordinated ad shoot production"
+      ],
+      impact: "Contributed to visually impactful campaigns for brand reach"
+    },
+    {
+      company: "SoulFit Dubai",
+      role: "Content Specialist & Social Media Manager",
+      icon: Star,
+      color: "from-blue-500 to-purple-500",
+      workDone: [
+        "Planned and developed Instagram content (posts + reels)",
+        "Created fitness-focused captions and value-based posts"
+      ],
+      impact: "Helped increase brand visibility and client engagement in Dubai"
+    },
+    {
+      company: "Dr. Pandit Sri Sidhant Arun Sharma Guruji",
+      role: "Spiritual Content Creator",
+      icon: Heart,
+      color: "from-indigo-500 to-purple-500",
+      workDone: [
+        "Wrote regular Instagram/Facebook captions around astrology themes",
+        "Designed post topics around client services and Indian festivals"
+      ],
+      impact: "Built consistent online identity in the spiritual niche"
+    },
+    {
+      company: "SET Institute",
+      role: "Scriptwriter & Social Media Creator",
+      icon: BookOpen,
+      color: "from-purple-500 to-indigo-500",
+      workDone: [
+        "Wrote video scripts for services and student stories",
+        "Managed testimonial video shoot setups",
+        "Created Instagram post ideas on study abroad topics",
+        "Wrote captions and selected hashtags"
+      ],
+      impact: "Helped build student trust and improved brand credibility"
+    },
+    {
+      company: "Evolves Event Co.",
+      role: "Social Media Strategist",
+      icon: Users,
+      color: "from-pink-500 to-purple-500",
+      workDone: [
+        "Managed Instagram content to promote event services",
+        "Created content strategy to drive qualified leads"
+      ],
+      impact: "Improved inquiry rate through event reels and posts"
+    }
+  ];
+
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-lavender-50">
       {/* Header Section */}
@@ -157,57 +218,34 @@ function App() {
         </div>
       </section>
 
-      {/* Client Work Section */}
+    {/* Client Work Section */}
       <section className="py-16 bg-gradient-to-r from-purple-50 to-indigo-50">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-            🧾 Client Work
+            🧾 Client Work & Case Studies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { 
-                company: "Framebox", 
-                role: "Ad Content Creator & Shoot Coordinator", 
-                icon: Camera,
-                color: "from-purple-500 to-pink-500"
-              },
-              { 
-                company: "SoulFit Dubai", 
-                role: "Content Specialist", 
-                icon: Star,
-                color: "from-blue-500 to-purple-500"
-              },
-              { 
-                company: "Dr. Sidhant Arun Guruji", 
-                role: "Spiritual Content Creator", 
-                icon: Heart,
-                color: "from-indigo-500 to-purple-500"
-              },
-              { 
-                company: "SET Institute", 
-                role: "Scriptwriter & Social Media Creator", 
-                icon: BookOpen,
-                color: "from-purple-500 to-indigo-500"
-              },
-              { 
-                company: "Evolves Event Co.", 
-                role: "Social Media Strategist", 
-                icon: Users,
-                color: "from-pink-500 to-purple-500"
-              }
-            ].map((client, index) => (
+            {clientWork.map((client, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className={`w-16 h-16 bg-gradient-to-r ${client.color} rounded-full flex items-center justify-center mb-6`}>
-                  <client.icon className="w-8 h-8 text-white" />
+                <div className={`w-14 h-14 bg-gradient-to-r ${client.color} rounded-full flex items-center justify-center mb-4`}>
+                  <client.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">{client.company}</h3>
-                <p className="text-purple-600 font-medium">{client.role}</p>
+                <h3 className="text-lg font-bold mb-1 text-gray-800">{client.company}</h3>
+                <p className="text-purple-600 font-medium mb-2">{client.role}</p>
+                <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                  {client.workDone.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+                <p className="text-xs text-gray-500 italic">📈 {client.impact}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      
       {/* Work Experience Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
